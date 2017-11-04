@@ -1,2 +1,5 @@
+require "bundler"
 require "bundler/gem_tasks"
-task default: :spec
+Bundler.require
+
+require "rubocop/stylecheck/rake_task"
