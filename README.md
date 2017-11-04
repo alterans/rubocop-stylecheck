@@ -1,15 +1,15 @@
 # Rubocop::Stylecheck
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubocop/stylecheck`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem is inspired by `ragnarson-stylecheck` gem.
 
-TODO: Delete this and the text above, and describe your gem
+This gem adds rake tasks which easily can invoke RuboCop with predefined options. You can use it in Ruby on Rails projects (with dedicated support from RuboCop side), but you can also use it in projects without Ruby on Rails - this gem supports both cases.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rubocop-stylecheck'
+gem "rubocop-stylecheck"
 ```
 
 And then execute:
@@ -20,19 +20,28 @@ Or install it yourself as:
 
     $ gem install rubocop-stylecheck
 
+After all in Rakefile you must add:
+
+```ruby
+require "rubocop/stylecheck/rake_task"
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+Available rake tasks:
+* style - shortcut for style:rubocop:with_auto_correct
+* style:rubocop:with_auto_correct - run RuboCop with auto correction
+* style:rubocop:without_auto_correct - run RuboCop without auto correction
+* style:rubocop:generate_local_config - generate rubocop config locally, if we want to override something
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+For generating local config file you must set:
+```ruby
+Rubocop::Stylecheck.config_path = "..."
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rubocop-stylecheck.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alterans/rubocop-stylecheck.
 
 
 ## License
