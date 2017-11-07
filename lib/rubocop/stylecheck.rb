@@ -3,7 +3,7 @@ require "rubocop/stylecheck/version"
 module Rubocop
   module Stylecheck
     class << self
-      attr_accessor :config_path, :direct
+      attr_accessor :config_path
 
       def project_config_path
         File.join(Dir.pwd, ".rubocop.yml")
